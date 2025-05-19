@@ -1,0 +1,23 @@
+body {
+  background: #111;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #8e44ad;
+  color: white;
+  border-radius: 8px;
+}
+#walletAddress {
+  margin-top: 20px;
+}
