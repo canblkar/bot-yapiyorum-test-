@@ -13,3 +13,15 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
     alert("Connection was rejected.");
   }
 });
+document.getElementById("buyNow").addEventListener("click", async () => {
+  if (!window.phantom?.solana) {
+    alert("Phantom Wallet is not installed!");
+    return;
+  }
+
+  const provider = window.phantom.solana;
+  await provider.connect();
+
+  const txid = await buyToken(provider, 0.01); // 0.01 SOL ile alım yap
+  alert("Transaction sent! Tx ID:\n" + txid);
+});
