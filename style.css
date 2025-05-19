@@ -21,3 +21,13 @@ button {
 #walletAddress {
   margin-top: 20px;
 }
+#sol-price {
+  background: #222;
+  color: #0f0;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: monospace;
+  margin-bottom: 20px;
+}
