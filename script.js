@@ -43,3 +43,25 @@ async function updateSolanaPrice() {
 
 updateSolanaPrice();
 setInterval(updateSolanaPrice, 30000);
+async function updateSolanaPrice() {
+  try {
+    const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd&include_24hr_change=true");
+    const data = await response.json();
+
+    const price = data.solana.usd.toFixed(2);
+    const change = data.solana.usd_24h_change.toFixed(2);
+
+    const el = document.getElementById("sol-price");
+    const sign = change >= 0 ? "+" : "";
+    const color = change >= 0 ? "#00ff00" : "#ff3333";
+
+    el.innerText = `SOL: $${price} (${sign}${change}%)`;
+    el.style.color = color;
+  } catch (error) {
+    console.error("Price fetch failed:", error);
+    document.getElementById("sol-price").innerText = "Failed to load SOL price.";
+  }
+}
+
+updateSolanaPrice();
+setInterval(updateSolanaPrice, 30000);
